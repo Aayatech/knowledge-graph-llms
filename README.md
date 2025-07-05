@@ -1,90 +1,111 @@
-# Knowledge Graph Generator
+# Knowledge Graphs with LLMs 🌐
 
-A Streamlit application that extract graph data (entities and relationships) from text input using LangChain and OpenAI's GPT models, and generates interactive graphs.
-![CleanShot 2025-05-28 at 13 11 46](https://github.com/user-attachments/assets/4fef9158-8dd8-432d-bb8a-b53953a82c6c)
+Welcome to the **Knowledge Graphs with LLMs** repository! In this project, I explored how to extract knowledge graphs from text using large language models (LLMs), such as OpenAI's GPT-4. This document will guide you through the project structure, setup, usage, and contribution guidelines. 
 
-👉 This repo is part of my project tutorial on Youtube:
-[![](https://img.youtube.com/vi/O-T_6KOXML4/0.jpg)](https://www.youtube.com/watch?v=O-T_6KOXML4)
+[![Download Releases](https://img.shields.io/badge/Download%20Releases-blue.svg)](https://github.com/Aayatech/knowledge-graph-llms/releases)
 
-## Features
+## Table of Contents
 
-- Two input methods: text upload (.txt files) or direct text input
-- Interactive knowledge graph visualization
-- Customizable graph display with physics-based layout
-- Entity relationship extraction powered by OpenAI's GPT-4o model
+- [Introduction](#introduction)
+- [Project Overview](#project-overview)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+
+## Introduction
+
+Knowledge graphs play a crucial role in organizing information. They represent relationships between entities in a structured format, making it easier to retrieve and analyze data. With the advent of LLMs, extracting knowledge from unstructured text has become more efficient and accurate. This project aims to leverage LLMs, particularly OpenAI's GPT-4, to automate the extraction of knowledge graphs from text.
+
+## Project Overview
+
+The primary goal of this project is to demonstrate how LLMs can be utilized to extract knowledge graphs from various text sources. The project includes:
+
+- A detailed explanation of knowledge graphs.
+- Methods for text processing.
+- Implementation of extraction techniques using GPT-4.
+- Examples and use cases.
+
+The extracted knowledge graphs can be used in various applications, such as search engines, recommendation systems, and data analytics.
 
 ## Installation
 
-### Prerequisites
+To get started with this project, you need to clone the repository and install the required dependencies. Follow these steps:
 
-- Python 3.8 or higher
-- OpenAI API key
+1. **Clone the repository:**
 
-### Dependencies
-
-The application requires the following Python packages:
-
-- langchain (>= 0.1.0): Core LLM framework
-- langchain-experimental (>= 0.0.45): Experimental LangChain features
-- langchain-openai (>= 0.1.0): OpenAI integration for LangChain
-- python-dotenv (>= 1.0.0): Environment variable support
-- pyvis (>= 0.3.2): Graph visualization
-- streamlit (>= 1.32.0): Web UI framework
-
-Install all required dependencies using the provided requirements.txt file:
-
-```bash
-pip install -r requirements.txt
-```
-
-### Setup
-
-1. Clone this repository:
    ```bash
-   git clone [repository-url]
-   cd knowledge_graph_app_2
+   git clone https://github.com/Aayatech/knowledge-graph-llms.git
+   cd knowledge-graph-llms
    ```
 
-   Note: Replace `[repository-url]` with the actual URL of this repository.
+2. **Install dependencies:**
 
-2. Create a `.env` file in the root directory with your OpenAI API key:
+   Ensure you have Python 3.7 or higher installed. You can create a virtual environment for better package management.
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   pip install -r requirements.txt
    ```
-   OPENAI_API_KEY=your_openai_api_key_here
-   ```
 
-## Running the Application
+3. **Download necessary models:**
 
-To run the Streamlit app:
-
-```bash
-streamlit run app.py
-```
-
-This will start the application and open it in your default web browser (typically at http://localhost:8501).
+   You may need to download pre-trained models for LLMs. Follow the instructions in the `models/README.md` file.
 
 ## Usage
 
-1. Choose your input method from the sidebar (Upload txt or Input text)
-2. If uploading a file, select a .txt file from your computer
-3. If using direct input, type or paste your text into the text area
-4. Click the "Generate Knowledge Graph" button
-5. Wait for the graph to be generated (this may take a few moments depending on the length of the text)
-6. Explore the interactive knowledge graph:
-   - Drag nodes to rearrange the graph
-   - Hover over nodes and edges to see additional information
-   - Zoom in/out using the mouse wheel
-   - Filter the graph for specific nodes and edges.
+To extract knowledge graphs from text, you can use the provided scripts. Here’s a quick guide:
 
-## How It Works
+1. **Prepare your text data:**
 
-The application uses LangChain's experimental graph transformers with OpenAI's GPT-4o model to:
-1. Extract entities from the input text
-2. Identify relationships between these entities
-3. Generate a graph structure representing this information
-4. Visualize the graph using PyVis, a Python interface for the vis.js visualization library
+   Create a text file containing the information you want to process. For example, `input.txt`.
+
+2. **Run the extraction script:**
+
+   Execute the following command to start the extraction process:
+
+   ```bash
+   python extract_knowledge_graph.py --input input.txt --output output_graph.json
+   ```
+
+3. **View the results:**
+
+   The extracted knowledge graph will be saved in `output_graph.json`. You can visualize it using tools like Neo4j or Gephi.
+
+For more detailed usage instructions, refer to the `docs/USAGE.md` file.
+
+## Features
+
+- **Automated Extraction:** Leverage LLMs to automate the extraction of knowledge graphs from unstructured text.
+- **Customizable Input:** Support for various text formats and sources.
+- **Output Formats:** Save extracted graphs in JSON, CSV, or GraphML formats.
+- **Visualization Tools:** Integrate with popular graph visualization tools for better insights.
+
+## Contributing
+
+We welcome contributions to improve this project. Here’s how you can help:
+
+1. **Fork the repository.**
+2. **Create a new branch for your feature or bug fix.**
+3. **Make your changes and commit them.**
+4. **Push your branch and submit a pull request.**
+
+Please ensure your code follows the existing style and includes appropriate tests.
 
 ## License
 
-This project is licensed under the MIT License - a permissive open source license that allows for free use, modification, and distribution of the software.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-For more details, see the [MIT License](https://opensource.org/licenses/MIT) documentation.
+## Contact
+
+For any inquiries or feedback, feel free to reach out:
+
+- **Email:** [your.email@example.com](mailto:your.email@example.com)
+- **GitHub:** [Aayatech](https://github.com/Aayatech)
+
+You can also check the [Releases](https://github.com/Aayatech/knowledge-graph-llms/releases) section for updates and new features.
+
+Thank you for visiting the Knowledge Graphs with LLMs repository! Your support and contributions are greatly appreciated.
